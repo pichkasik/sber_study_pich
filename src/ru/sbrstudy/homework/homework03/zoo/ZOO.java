@@ -23,8 +23,6 @@ public class ZOO {
 			animal.wakeUp();
 			animal.goStraight();
 		}
-
-
 	}
 
 }

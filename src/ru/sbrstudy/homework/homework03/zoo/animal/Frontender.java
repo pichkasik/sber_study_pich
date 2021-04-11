@@ -1,6 +1,6 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Frontender extends Animal{
+public class Frontender extends Animal implements Killing{
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
 	public Frontender() {
@@ -19,5 +19,10 @@ public class Frontender extends Animal{
 	@Override
 	public void goStraight() {
 		System.out.println(this.full_name + " rolled on the chair 0,3 meter");
+	}
+
+	@Override
+	public void killSomeone(){
+		System.out.println(this.full_name + " killed time");
 	}
 }

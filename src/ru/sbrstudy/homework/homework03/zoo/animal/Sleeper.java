@@ -1,6 +1,6 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Sleeper extends Animal{
+public class Sleeper extends Animal implements Killing{
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
 	public Sleeper() {
@@ -19,5 +19,10 @@ public class Sleeper extends Animal{
 	@Override
 	public void goStraight() {
 		System.out.println(this.full_name + " dug throught 0,2 meters");
+	}
+
+	@Override
+	public void killSomeone(){
+		System.out.println(this.full_name + " killed worm");
 	}
 }

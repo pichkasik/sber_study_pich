@@ -1,6 +1,6 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Tiger extends Animal{
+public class Tiger extends Animal implements Killing{
 
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
@@ -20,5 +20,10 @@ public class Tiger extends Animal{
 	@Override
 	public void goStraight() {
 		System.out.println(this.full_name + " walked 1 meter");
+	}
+
+	@Override
+	public void killSomeone(){
+		System.out.println(this.full_name + " killed antelope");
 	}
 }
