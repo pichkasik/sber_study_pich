@@ -21,6 +21,8 @@ public class ZOO {
 			animal.goSleep();
 			animal.wakeUp();
 			animal.moveStraight();
+			animal.makeChild();
+			animal.makeChild(3);
 		}
 		System.out.println("\n=Killers=");
 		tigerJhon.killSomeone();

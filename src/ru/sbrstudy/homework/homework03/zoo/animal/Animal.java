@@ -2,7 +2,7 @@ package ru.sbrstudy.homework.homework03.zoo.animal;
 
 public abstract class Animal {
 	protected String name;
-	protected boolean sleep = false;
+	private boolean sleep = false;
 
 	public Animal(){
 
@@ -29,6 +29,19 @@ public abstract class Animal {
 		}
 		else{
 			System.out.println(getClass().getSimpleName() + " " + this.name + " not sleeping!");
+		}
+	}
+
+	public void makeChild() {
+		System.out.println(getClass().getSimpleName() + " " + this.name + " make one child");
+	}
+
+	public void makeChild(int totalChildren) {
+		if (totalChildren == 1){
+			makeChild();
+		}
+		else{
+			System.out.println(getClass().getSimpleName() + " " + this.name + " make " + totalChildren + " children");
 		}
 	}
 }
