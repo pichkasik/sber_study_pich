@@ -1,24 +1,29 @@
 package ru.sbrstudy.homework.homework03.zoo;
 
-import ru.sbrstudy.homework.homework03.zoo.animal.Animal;
-import ru.sbrstudy.homework.homework03.zoo.animal.Tiger;
+import ru.sbrstudy.homework.homework03.zoo.animal.*;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ZOO {
 	public static void main(String[] args) {
 		System.out.println("=ZOO=");
-		var tiger1 = new Tiger();
 		var tigerJhon = new Tiger("Jhon");
-		tigerJhon.say();
-		tigerJhon.wakeUp();
-		tigerJhon.goSleep();
-		tigerJhon.goSleep();
-		tigerJhon.wakeUp();
-		tiger1.say();
-		tiger1.wakeUp();
-		tiger1.goSleep();
-		tiger1.goSleep();
-		tiger1.wakeUp();
-		tigerJhon.goSleep();
+		var dolphin = new Dolphin("Derek");
+		var frontender = new Frontender("Ilya");
+		var sleeper = new Sleeper("Nate");
+		var eagle = new Eagle("Batman");
+		var list = Arrays.asList(tigerJhon, dolphin, frontender, sleeper, eagle);
+		for (var animal : list){
+			System.out.println("\nThe animal " + animal.getClass().getSimpleName());
+			animal.say();
+			animal.wakeUp();
+			animal.goSleep();
+			animal.goSleep();
+			animal.wakeUp();
+		}
+
+
 	}
 
 }
