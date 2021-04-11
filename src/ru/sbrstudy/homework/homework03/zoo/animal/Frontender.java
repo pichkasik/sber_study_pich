@@ -15,4 +15,9 @@ public class Frontender extends Animal{
 	public void say() {
 		System.out.println(this.full_name + " saying " + "JS is cool!");
 	}
+
+	@Override
+	public void goStraight() {
+		System.out.println(this.full_name + " rolled on the chair 0,3 meter");
+	}
 }

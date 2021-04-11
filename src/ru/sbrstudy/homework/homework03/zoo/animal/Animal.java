@@ -13,6 +13,7 @@ public abstract class Animal {
 	}
 
 	public abstract void say();
+	public abstract void goStraight();
 
 	public void goSleep() {
 		if (!this.sleep){

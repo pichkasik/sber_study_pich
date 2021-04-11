@@ -16,4 +16,9 @@ public class Tiger extends Animal{
 	public void say() {
 		System.out.println(this.full_name + " saying " + "RRR");
 	}
+
+	@Override
+	public void goStraight() {
+		System.out.println(this.full_name + " walked 1 meter");
+	}
 }

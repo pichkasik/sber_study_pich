@@ -10,9 +10,9 @@ public class ZOO {
 		System.out.println("=ZOO=");
 		var tigerJhon = new Tiger("Jhon");
 		var dolphin = new Dolphin("Derek");
-		var frontender = new Frontender("Ilya");
 		var sleeper = new Sleeper("Nate");
 		var eagle = new Eagle("Batman");
+		var frontender = new Frontender("Ilya");
 		var list = Arrays.asList(tigerJhon, dolphin, frontender, sleeper, eagle);
 		for (var animal : list){
 			System.out.println("\nThe animal " + animal.getClass().getSimpleName());
@@ -21,6 +21,7 @@ public class ZOO {
 			animal.goSleep();
 			animal.goSleep();
 			animal.wakeUp();
+			animal.goStraight();
 		}
 
 

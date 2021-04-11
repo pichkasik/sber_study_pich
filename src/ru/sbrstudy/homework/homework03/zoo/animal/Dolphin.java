@@ -15,4 +15,9 @@ public class Dolphin extends Animal{
 	public void say() {
 		System.out.println(this.full_name + " saying " + "eEeEeEeEeEeEeEeEeEeE");
 	}
+
+	@Override
+	public void goStraight() {
+		System.out.println(this.full_name + " swam 1,5 meters");
+	}
 }

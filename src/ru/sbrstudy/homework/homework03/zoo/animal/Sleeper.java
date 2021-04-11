@@ -15,4 +15,9 @@ public class Sleeper extends Animal{
 	public void say() {
 		System.out.println(this.full_name + " saying " + "Pipi!");
 	}
+
+	@Override
+	public void goStraight() {
+		System.out.println(this.full_name + " dug throught 0,2 meters");
+	}
 }

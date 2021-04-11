@@ -15,4 +15,9 @@ public class Eagle extends Animal{
 	public void say() {
 		System.out.println(this.full_name + " saying " + "skreeeeeaghh!");
 	}
+
+	@Override
+	public void goStraight() {
+		System.out.println(this.full_name + " flew 2 meters");
+	}
 }
