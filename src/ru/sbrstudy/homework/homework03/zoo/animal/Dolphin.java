@@ -1,6 +1,6 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Dolphin extends Animal{
+public class Dolphin extends Animal implements Moveable, Speaking{
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
 	public Dolphin() {
@@ -17,7 +17,7 @@ public class Dolphin extends Animal{
 	}
 
 	@Override
-	public void goStraight() {
+	public void moveStraight() {
 		System.out.println(this.full_name + " swam 1,5 meters");
 	}
 }

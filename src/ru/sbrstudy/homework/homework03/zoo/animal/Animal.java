@@ -12,9 +12,6 @@ public abstract class Animal {
 		this.name = name;
 	}
 
-	public abstract void say();
-	public abstract void goStraight();
-
 	public void goSleep() {
 		if (!this.sleep){
 			System.out.println(getClass().getSimpleName() + " " + this.name + " go to sleep");

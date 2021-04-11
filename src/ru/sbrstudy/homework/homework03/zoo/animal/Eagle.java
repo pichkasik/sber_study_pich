@@ -1,6 +1,6 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Eagle extends Animal implements Killing{
+public class Eagle extends Animal implements Moveable, Speaking, Killing{
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
 	public Eagle() {
@@ -17,7 +17,7 @@ public class Eagle extends Animal implements Killing{
 	}
 
 	@Override
-	public void goStraight() {
+	public void moveStraight() {
 		System.out.println(this.full_name + " flew 2 meters");
 	}
 

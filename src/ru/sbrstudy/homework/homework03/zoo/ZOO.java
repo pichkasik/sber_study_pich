@@ -2,7 +2,6 @@ package ru.sbrstudy.homework.homework03.zoo;
 
 import ru.sbrstudy.homework.homework03.zoo.animal.*;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class ZOO {
@@ -21,8 +20,13 @@ public class ZOO {
 			animal.goSleep();
 			animal.goSleep();
 			animal.wakeUp();
-			animal.goStraight();
+			animal.moveStraight();
 		}
+		System.out.println("\n=Killers=");
+		tigerJhon.killSomeone();
+		sleeper.killSomeone();
+		eagle.killSomeone();
+		frontender.killSomeone();
 	}
 
 }
