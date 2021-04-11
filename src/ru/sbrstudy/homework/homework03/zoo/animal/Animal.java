@@ -14,8 +14,23 @@ public abstract class Animal {
 
 	public abstract void say();
 
-	protected abstract boolean isSleeping();
+	public void goSleep() {
+		if (!this.sleep){
+			System.out.println(getClass().getSimpleName() + " " + this.name + " go to sleep");
+			this.sleep = true;
+		}
+		else {
+			System.out.println(getClass().getSimpleName() + " " + this.name + " still sleeping");
+		}
+	}
 
-	public abstract void goSleep();
-	public abstract void wakeUp();
+	public void wakeUp() {
+		if (this.sleep){
+			System.out.println(getClass().getSimpleName() + " " + this.name + " woke up!");
+			this.sleep = false;
+		}
+		else{
+			System.out.println(getClass().getSimpleName() + " " + this.name + " not sleeping!");
+		}
+	}
 }

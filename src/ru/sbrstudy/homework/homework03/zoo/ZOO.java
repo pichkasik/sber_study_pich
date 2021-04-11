@@ -16,8 +16,9 @@ public class ZOO {
 		tiger1.say();
 		tiger1.wakeUp();
 		tiger1.goSleep();
-		tigerJhon.goSleep();
+		tiger1.goSleep();
 		tiger1.wakeUp();
+		tigerJhon.goSleep();
 	}
 
 }
