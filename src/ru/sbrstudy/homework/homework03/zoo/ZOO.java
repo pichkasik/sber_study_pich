@@ -1,11 +1,13 @@
 package ru.sbrstudy.homework.homework03.zoo;
 
 import ru.sbrstudy.homework.homework03.zoo.animal.*;
+import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
 
 import java.util.Arrays;
 
 public class ZOO {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NegativeNumberException {
+		int numberChildren;
 		System.out.println("=ZOO=");
 		var tigerJhon = new Tiger("Jhon");
 		var dolphin = new Dolphin("Derek");
@@ -22,7 +24,10 @@ public class ZOO {
 			animal.wakeUp();
 			animal.moveStraight();
 			animal.makeChild();
-			animal.makeChild(3);
+			numberChildren = 5;
+			animal.makeChild(numberChildren);
+			numberChildren = -5;
+			animal.makeChild(numberChildren);
 		}
 		System.out.println("\n=Killers=");
 		tigerJhon.killSomeone();
