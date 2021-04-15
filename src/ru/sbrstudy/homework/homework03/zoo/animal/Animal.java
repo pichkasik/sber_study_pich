@@ -1,17 +1,35 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
 import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
+import ru.sbrstudy.homework.homework03.zoo.exception.WrongNameException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public abstract class Animal {
 	protected String name;
 	private boolean sleep = false;
 
 	public Animal(){
-
+		try{
+			throw new WrongNameException();
+		}
+		catch (WrongNameException e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public Animal(String name){
-		this.name = name;
+		try {
+			if (WrongNameException.validateNameAnimal(name)){
+				this.name = name;
+			}
+			else{
+				throw new  WrongNameException(name);
+			}
+		}
+		catch (WrongNameException e){
+			System.out.println(e.getMessage());
+		}
 	}
 
 	public void goSleep() {
@@ -38,19 +56,11 @@ public abstract class Animal {
 		System.out.println(getClass().getSimpleName() + " " + this.name + " make one child");
 	}
 
-	public void makeChild(int totalChildren){
-		try {
-			if (totalChildren < 0){
-				throw new NegativeNumberException("Error: var totalChildren can't be negative");
-			}
-			if (totalChildren == 1) {
-				makeChild();
-			} else {
-				System.out.println(getClass().getSimpleName() + " " + this.name + " make " + totalChildren + " children");
-			}
-		}
-		catch (NegativeNumberException e){
-			System.out.println(e.getMessage());
+	public void makeChild(int totalChildren) throws NegativeNumberException{
+		if (totalChildren == 1) {
+			makeChild();
+		} else {
+			System.out.println(getClass().getSimpleName() + " " + this.name + " make " + totalChildren + " children");
 		}
 	}
 }
