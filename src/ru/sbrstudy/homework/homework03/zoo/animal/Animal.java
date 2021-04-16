@@ -2,8 +2,6 @@ package ru.sbrstudy.homework.homework03.zoo.animal;
 
 import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
 import ru.sbrstudy.homework.homework03.zoo.exception.WrongNameException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public abstract class Animal {
 	protected String name;
