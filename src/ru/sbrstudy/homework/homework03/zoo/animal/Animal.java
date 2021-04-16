@@ -2,8 +2,9 @@ package ru.sbrstudy.homework.homework03.zoo.animal;
 
 import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
 import ru.sbrstudy.homework.homework03.zoo.exception.WrongNameException;
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Sleeping;
 
-public abstract class Animal {
+public abstract class Animal implements Sleeping {
 	protected String name;
 	private boolean sleep = false;
 
