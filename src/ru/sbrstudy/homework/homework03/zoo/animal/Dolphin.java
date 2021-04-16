@@ -15,6 +15,11 @@ public class Dolphin extends Animal implements Moveable, Speaking {
 	}
 
 	@Override
+	public void skinType() {
+		System.out.println(this.full_name + " has smooth skin");
+	}
+
+	@Override
 	public void say() {
 		System.out.println(this.full_name + " saying " + "eEeEeEeEeEeEeEeEeEeE");
 	}

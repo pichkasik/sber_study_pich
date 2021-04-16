@@ -16,6 +16,11 @@ public class Eagle extends Animal implements Moveable, Speaking, Killing {
 	}
 
 	@Override
+	public void skinType() {
+		System.out.println(this.full_name + " has feathers skin");
+	}
+
+	@Override
 	public void say() {
 		System.out.println(this.full_name + " saying " + "skreeeeeaghh!");
 	}

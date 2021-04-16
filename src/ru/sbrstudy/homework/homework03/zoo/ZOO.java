@@ -19,6 +19,7 @@ public class ZOO {
 		var list = Arrays.asList(tigerJhon, dolphin, frontender, sleeper, eagle);
 		for (var animal : list){
 			System.out.println("\nThe animal " + animal.getClass().getSimpleName());
+			animal.skinType();
 			animal.say();
 			animal.wakeUp();
 			animal.goSleep();
