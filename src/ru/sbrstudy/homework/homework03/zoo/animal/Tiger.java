@@ -1,6 +1,10 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Tiger extends Animal implements Moveable, Speaking, Killing{
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Killing;
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Moveable;
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Speaking;
+
+public class Tiger extends Animal implements Moveable, Speaking, Killing {
 
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 

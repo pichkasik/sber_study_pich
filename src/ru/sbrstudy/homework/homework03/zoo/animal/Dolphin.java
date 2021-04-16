@@ -1,6 +1,9 @@
 package ru.sbrstudy.homework.homework03.zoo.animal;
 
-public class Dolphin extends Animal implements Moveable, Speaking{
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Moveable;
+import ru.sbrstudy.homework.homework03.zoo.interfaces.Speaking;
+
+public class Dolphin extends Animal implements Moveable, Speaking {
 	private String full_name = "The " + getClass().getSimpleName() + " " + this.name;
 
 	public Dolphin() {
