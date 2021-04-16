@@ -66,4 +66,22 @@ public abstract class Animal implements Sleeping {
 			System.out.println(getClass().getSimpleName() + " " + this.name + " make " + totalChildren + " children");
 		}
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		Animal animal = (Animal) o;
+
+		if (sleep != animal.sleep) return false;
+		return name != null ? name.equals(animal.name) : animal.name == null;
+	}
+
+	@Override
+	public int hashCode() {
+		int result = name != null ? name.hashCode() : 0;
+		result = 31 * result + (sleep ? 1 : 0);
+		return result;
+	}
 }
