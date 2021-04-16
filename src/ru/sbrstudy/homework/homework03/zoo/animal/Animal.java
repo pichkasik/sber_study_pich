@@ -33,6 +33,8 @@ public abstract class Animal implements Sleeping {
 
 	public abstract void skinType();
 
+	public abstract int getNumberLegs();
+
 	public void goSleep() {
 		if (!this.sleep){
 			System.out.println(getClass().getSimpleName() + " " + this.name + " go to sleep");

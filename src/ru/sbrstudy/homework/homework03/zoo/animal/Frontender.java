@@ -21,6 +21,11 @@ public class Frontender extends Animal implements Moveable, Speaking, Killing {
 	}
 
 	@Override
+	public int getNumberLegs() {
+		return 2;
+	}
+
+	@Override
 	public void say() {
 		System.out.println(this.full_name + " saying " + "JS is cool!");
 	}

@@ -20,6 +20,11 @@ public class Dolphin extends Animal implements Moveable, Speaking {
 	}
 
 	@Override
+	public int getNumberLegs() {
+		return 0;
+	}
+
+	@Override
 	public void say() {
 		System.out.println(this.full_name + " saying " + "eEeEeEeEeEeEeEeEeEeE");
 	}

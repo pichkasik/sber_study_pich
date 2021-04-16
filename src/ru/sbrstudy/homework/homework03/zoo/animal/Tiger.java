@@ -22,6 +22,11 @@ public class Tiger extends Animal implements Moveable, Speaking, Killing {
 	}
 
 	@Override
+	public int getNumberLegs() {
+		return 4;
+	}
+
+	@Override
 	public void say() {
 		System.out.println(this.full_name + " saying " + "RRR");
 	}

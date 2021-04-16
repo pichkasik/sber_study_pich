@@ -20,6 +20,7 @@ public class ZOO {
 		for (var animal : list){
 			System.out.println("\nThe animal " + animal.getClass().getSimpleName());
 			animal.skinType();
+			System.out.println(animal.getClass().getSimpleName() + " has " + ((Animal) animal).getNumberLegs() + " legs");
 			animal.say();
 			animal.wakeUp();
 			animal.goSleep();
