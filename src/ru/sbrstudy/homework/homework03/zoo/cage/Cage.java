@@ -59,5 +59,6 @@ public class Cage {
 		for (Animal animal : animalHashSet) {
 			System.out.print(animal.getName() + " ");
 		}
+		System.out.println();
 	}
 }
