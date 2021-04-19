@@ -8,22 +8,29 @@ import java.util.HashSet;
 
 public class Cage {
 	private int sizeCage = 5;
+	private int numberCage;
 	private HashSet<Animal> animalsHashSet;
 
-	Cage(){
+	public Cage(int numberCage){
 		this.animalsHashSet = new HashSet<Animal>();
+		this.numberCage = numberCage;
 	}
 
-	Cage(int sizeCage){
+	public Cage(int numberCage, int sizeCage){
 		this.sizeCage = sizeCage;
 		this.animalsHashSet = new HashSet<Animal>();
+		this.numberCage = numberCage;
+	}
+
+	public int getNumberCage(){
+		return numberCage;
 	}
 
 	public HashSet<Animal> getAnimalHashSet(){
 		return this.animalsHashSet;
 	}
 
-	public boolean addAnimal(Animal animalToAdd) throws ExistentAnimalInCageExeption, FullCageException {
+	public boolean addAnimal(Animal animalToAdd){
 		var animalsHashSet = getAnimalHashSet();
 		try {
 			if (animalsHashSet.size() >= this.sizeCage){
@@ -47,5 +54,10 @@ public class Cage {
 		return animalsHashSet.remove(animalToRemove);
 	}
 
-
+	public void printListAnimals(){
+		var animalHashSet = getAnimalHashSet();
+		for (Animal animal : animalHashSet) {
+			System.out.print(animal.getName() + " ");
+		}
+	}
 }
