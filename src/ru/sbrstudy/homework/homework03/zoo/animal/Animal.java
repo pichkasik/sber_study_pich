@@ -35,6 +35,10 @@ public abstract class Animal implements Sleeping {
 
 	public abstract int getNumberLegs();
 
+	public String getName(){
+		return this.name;
+	}
+
 	public void goSleep() {
 		if (!this.sleep){
 			System.out.println(getClass().getSimpleName() + " " + this.name + " go to sleep");

@@ -27,13 +27,13 @@ public class Cage {
 		var animalsHashSet = getAnimalHashSet();
 		try {
 			if (animalsHashSet.size() >= this.sizeCage){
-				throw new FullCageException();
+				throw new FullCageException("Error: Could't add '" + animalToAdd.getName() + "' to zoo. The cage is full");
 			}
 			else if (animalsHashSet.add(animalToAdd)){
 				return true;
 			}
 			else {
-				throw new ExistentAnimalInCageExeption();
+				throw new ExistentAnimalInCageExeption("Error: Could't add '" + animalToAdd.getName() + "' to zoo. Type of the Animal already in the Cage");
 			}
 		}
 		catch (FullCageException | ExistentAnimalInCageExeption e){
@@ -42,12 +42,9 @@ public class Cage {
 		return false;
 	}
 
-	public boolean removeAnimal(Animal animalToRemove){//TODO throw exception
+	public boolean removeAnimal(Animal animalToRemove){
 		var animalsHashSet = getAnimalHashSet();
-		if (animalsHashSet.remove(animalToRemove)) {
-			return true;
-		}
-		return false;
+		return animalsHashSet.remove(animalToRemove);
 	}
 
 
