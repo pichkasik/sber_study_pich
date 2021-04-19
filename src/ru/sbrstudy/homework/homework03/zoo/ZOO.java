@@ -46,6 +46,7 @@ public class ZOO {
 				System.out.println(e.getMessage());
 			}
 		}
+		cageFirst.removeAnimal(dolphinDerek);
 		System.out.println("\n=Killers=");
 		tigerJhon.killSomeone();
 		sleeperNate.killSomeone();
