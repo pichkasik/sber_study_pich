@@ -30,17 +30,27 @@ public class Cage {
 		return this.animalsHashSet;
 	}
 
+	public boolean isUniqueAnimal(Animal animalToCheck){
+		var animalsHashSet = getAnimalHashSet();
+		for(var animal : animalsHashSet){
+			if (animalToCheck.compareTypeAnimal(animal)){
+				return false;
+			}
+		}
+		return true;
+	}
+
 	public boolean addAnimal(Animal animalToAdd){
 		var animalsHashSet = getAnimalHashSet();
 		try {
 			if (animalsHashSet.size() >= this.sizeCage){
 				throw new FullCageException("Error: Could't add '" + animalToAdd.getName() + "' to zoo. The cage is full");
 			}
-			else if (animalsHashSet.add(animalToAdd)){
+			else if (isUniqueAnimal(animalToAdd) && animalsHashSet.add(animalToAdd)){
 				return true;
 			}
 			else {
-				throw new ExistentAnimalInCageExeption("Error: Could't add '" + animalToAdd.getName() + "' to zoo. Type of the Animal already in the Cage");
+				throw new ExistentAnimalInCageExeption("Error: Could't add " + animalToAdd.getClass().getSimpleName() + " '" + animalToAdd.getName() + "' to zoo. Type of the Animal already in the Cage");
 			}
 		}
 		catch (FullCageException | ExistentAnimalInCageExeption e){

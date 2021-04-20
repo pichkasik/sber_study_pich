@@ -62,7 +62,10 @@ public class ZOO {
 		cageSecond.addAnimal(dolphinDerekSecond);
 		cageSecond.addAnimal(sleeperNateSecond);
 		cageSecond.addAnimal(eagleBatmanSecond);
+		cageSecond.addAnimal(tigerJhonSecond);
 		cageSecond.addAnimal(tigerJhon);
+		cageSecond.addAnimal(eagleBatman);
+
 
 		System.out.println();
 		System.out.println("The Cage number - " + cageFirst.getNumberCage());
