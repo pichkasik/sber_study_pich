@@ -4,10 +4,7 @@ import ru.sbrstudy.homework.homework03.zoo.animal.*;
 import ru.sbrstudy.homework.homework03.zoo.cage.Cage;
 import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Arrays;
-import java.util.Set;
+import java.util.*;
 
 public class ZOO {
 	public static void main(String[] args) throws NegativeNumberException {
@@ -15,7 +12,9 @@ public class ZOO {
 
 		Cage cageFirst = new Cage(1, 3);
 		Cage cageSecond = new Cage(2);
-		Set<Cage> cageSet = Set.of(cageFirst, cageSecond);
+		HashMap<Integer, Cage> cageMap = new HashMap<Integer, Cage>();
+		cageMap.put(1, cageFirst);
+		cageMap.put(2, cageSecond);
 		System.out.println("=ZOO=");
 		var tigerwrong = new Tiger("Wrong123");
 		var tigerwrong1 = new Tiger("");
@@ -27,7 +26,7 @@ public class ZOO {
 		var list = Arrays.asList(tigerJhon, dolphinDerek, frontenderIlya, sleeperNate, eagleBatman);
 		for (var animal : list){
 			System.out.println("\nThe animal " + animal.getClass().getSimpleName());
-			cageFirst.addAnimal(animal);
+			cageMap.get(1).addAnimal(animal);
 			animal.skinType();
 			System.out.println(animal.getClass().getSimpleName() + " has " + ((Animal) animal).getNumberLegs() + " legs");
 			animal.say();
@@ -49,7 +48,7 @@ public class ZOO {
 				System.out.println(e.getMessage());
 			}
 		}
-		cageFirst.removeAnimal(dolphinDerek);
+		cageMap.get(1).removeAnimal(dolphinDerek);
 		System.out.println("\n=Killers=");
 		tigerJhon.killSomeone();
 		sleeperNate.killSomeone();
@@ -61,23 +60,23 @@ public class ZOO {
 		var sleeperNateSecond = new Sleeper("NateSecond");
 		var eagleBatmanSecond = new Eagle("BatmanSecond");
 
-		cageSecond.addAnimal(tigerJhonSecond);
-		cageSecond.addAnimal(dolphinDerekSecond);
-		cageSecond.addAnimal(sleeperNateSecond);
-		cageSecond.addAnimal(eagleBatmanSecond);
-		cageSecond.addAnimal(tigerJhonSecond);
-		cageSecond.addAnimal(tigerJhon);
-		cageSecond.addAnimal(eagleBatman);
+		cageMap.get(2).addAnimal(tigerJhonSecond);
+		cageMap.get(2).addAnimal(dolphinDerekSecond);
+		cageMap.get(2).addAnimal(sleeperNateSecond);
+		cageMap.get(2).addAnimal(eagleBatmanSecond);
+		cageMap.get(2).addAnimal(tigerJhonSecond);
+		cageMap.get(2).addAnimal(tigerJhon);
+		cageMap.get(2).addAnimal(eagleBatman);
 
 
 		System.out.println();
-		System.out.println("The Cage number - " + cageFirst.getNumberCage());
+		System.out.println("The Cage number - " + cageMap.get(1).getNumberCage());
 		System.out.print("There are animals: ");
-		cageFirst.printListAnimals();
+		cageMap.get(1).printListAnimals();
 		System.out.println();
-		System.out.println("The Cage number - " + cageSecond.getNumberCage());
+		System.out.println("The Cage number - " + cageMap.get(2).getNumberCage());
 		System.out.print("There are animals: ");
-		cageSecond.printListAnimals();
+		cageMap.get(2).printListAnimals();
 	}
 
 }
