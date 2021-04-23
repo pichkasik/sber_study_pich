@@ -3,8 +3,11 @@ package ru.sbrstudy.homework.homework03.zoo;
 import ru.sbrstudy.homework.homework03.zoo.animal.*;
 import ru.sbrstudy.homework.homework03.zoo.cage.Cage;
 import ru.sbrstudy.homework.homework03.zoo.exception.NegativeNumberException;
+
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Arrays;
+import java.util.Set;
 
 public class ZOO {
 	public static void main(String[] args) throws NegativeNumberException {
@@ -12,7 +15,7 @@ public class ZOO {
 
 		Cage cageFirst = new Cage(1, 3);
 		Cage cageSecond = new Cage(2);
-
+		Set<Cage> cageSet = Set.of(cageFirst, cageSecond);
 		System.out.println("=ZOO=");
 		var tigerwrong = new Tiger("Wrong123");
 		var tigerwrong1 = new Tiger("");
@@ -75,8 +78,6 @@ public class ZOO {
 		System.out.println("The Cage number - " + cageSecond.getNumberCage());
 		System.out.print("There are animals: ");
 		cageSecond.printListAnimals();
-
-
 	}
 
 }
