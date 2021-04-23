@@ -8,6 +8,8 @@ public class PrimeNumberCompare implements Comparator<MyInteger> {
 		int halfNumber = nbr / 2;
 		if (nbr == 2)
 			return true;
+		else if (nbr % 2 == 0)
+			return false;
 		for(int i = 3; i <= halfNumber; i += 2){
 			if (nbr % i == 0){
 				return false;
