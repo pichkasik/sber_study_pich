@@ -5,13 +5,24 @@ import java.util.TreeSet;
 
 public class Main {
 	public static void main(String[] args) {
-		System.out.println("Wait for 10 seconds to see output");
-		List<Integer> integerList = List.of(-5, 0, 1, 60, 10000, 367, 24, 2147483647, -2147483648);
-		TreeSet<MyInteger> myIntegerTreeSet = new TreeSet<MyInteger>(new PrimeNumberCompare());
+		System.out.println("Wait for 10 seconds to see output there is a big integers to work with");
+		List<Integer> integerList = List.of(-5, 0, 1, 60, 10000, 367, 24, 2147483647, -2147483648, 1234567890, 123456789);
+		TreeSet<MyInteger> integerTreeSetPrime = new TreeSet<MyInteger>(new PrimeNumberCompare());
 		for (var integer: integerList) {
-			myIntegerTreeSet.add(new MyInteger(integer));
+			integerTreeSetPrime.add(new MyInteger(integer));
 		}
-		for (var myInteger : myIntegerTreeSet){
+		System.out.println("Prime numbers Compare");
+		for (var myInteger : integerTreeSetPrime){
+			System.out.println(myInteger);
+		}
+
+		System.out.println();
+		TreeSet<MyInteger> integerTreeSetUniqueDigits = new TreeSet<MyInteger>(new UniqueDigitCompare());
+		for (var integer: integerList) {
+			integerTreeSetUniqueDigits.add(new MyInteger(integer));
+		}
+		System.out.println("Unique digits Compare");
+		for (var myInteger : integerTreeSetUniqueDigits){
 			System.out.println(myInteger);
 		}
 	}
