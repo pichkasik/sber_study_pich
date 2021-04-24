@@ -21,6 +21,7 @@ public class UniqueDigitCompare implements Comparator<MyInteger> {
 	public int compare(MyInteger nbr1, MyInteger nbr2) {
 		Integer numberUniqueDigits1 = getNumberUniqueDigits(nbr1.getValue());
 		Integer numberUniqueDigits2 = getNumberUniqueDigits(nbr2.getValue());
+		//TODO add equals method if return is 0
 		return numberUniqueDigits1.compareTo(numberUniqueDigits2);
 	}
 }

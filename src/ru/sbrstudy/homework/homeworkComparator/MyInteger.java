@@ -18,4 +18,19 @@ public class MyInteger{
 				"value=" + this.value +
 				'}';
 	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+
+		MyInteger myInteger = (MyInteger) o;
+
+		return value == myInteger.value;
+	}
+
+	@Override
+	public int hashCode() {
+		return value;
+	}
 }

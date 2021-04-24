@@ -2,7 +2,7 @@ package ru.sbrstudy.homework.homeworkComparator;
 
 import java.util.Comparator;
 
-public class PrimeNumberCompare implements Comparator<MyInteger> {
+public class PrimeNumberComparator implements Comparator<MyInteger> {
 
 	private boolean isPrimeNumber(Integer nbr){
 		int halfNumber = nbr / 2;
@@ -35,10 +35,17 @@ public class PrimeNumberCompare implements Comparator<MyInteger> {
 
 	@Override
 	public int compare(MyInteger nbr1, MyInteger nbr2) {
+		int result;
 		Integer totalPrimeDivisions1;
 		Integer totalPrimeDivisions2;
 		totalPrimeDivisions1 = getTotalPrimeDivisions(nbr1.getValue());
 		totalPrimeDivisions2 = getTotalPrimeDivisions(nbr2.getValue());
-		return totalPrimeDivisions1.compareTo(totalPrimeDivisions2);
+		result = totalPrimeDivisions1.compareTo(totalPrimeDivisions2);
+		if (result == 0 && !nbr1.equals(nbr2)){
+			return Integer.compare(nbr1.getValue(), nbr2.getValue());
+		}
+		else{
+			return result;
+		}
 	}
 }
