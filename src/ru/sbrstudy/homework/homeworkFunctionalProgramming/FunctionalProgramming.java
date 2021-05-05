@@ -44,23 +44,23 @@ public class FunctionalProgramming {
 	}
 
 	/*
-	* Set `result` to 'empty' value
+	* Set `identity` to 'empty' value
 	* Example: if List<String> => res = ""
 	* Example: if List<Integer> => res = * ? 1 : 0
 	 */
-	static <T, R> R myFoldLeft(List<T> origin, R result, BiFunction<R, T, R> lambda){
+	static <T, R> R myFoldLeft(List<T> origin, R identity, BiFunction<R, T, R> lambda){
 		if (origin.size() == 0){
-			return result;
+			return identity;
 		}
-		R nextValue = lambda.apply(result, origin.get(0));
+		R nextValue = lambda.apply(identity, origin.get(0));
 		return myFoldLeft(origin.subList(1, origin.size()), nextValue, lambda);
 	}
 
-	static <T, R> R myFoldRight(List<T> origin, R result, BiFunction<R, T, R> lambda){
+	static <T, R> R myFoldRight(List<T> origin, R identity, BiFunction<R, T, R> lambda){
 		if (origin.size() == 0){
-			return result;
+			return identity;
 		}
-		R nextValue = lambda.apply(result, origin.get(origin.size() - 1));
+		R nextValue = lambda.apply(identity, origin.get(origin.size() - 1));
 		return myFoldLeft(origin.subList(0, origin.size() - 1), nextValue, lambda);
 	}
 
