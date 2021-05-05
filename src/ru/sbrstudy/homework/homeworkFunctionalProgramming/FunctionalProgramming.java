@@ -44,28 +44,23 @@ public class FunctionalProgramming {
 	}
 
 	/*
-	* Set value res to not affected value
-	* Example if (String)str => res = ""
-	* Example if (Integer)nbr => res = 0 | 1
+	* Set `result` to 'empty' value
+	* Example: if List<String> => res = ""
+	* Example: if List<Integer> => res = * ? 1 : 0
 	 */
-
-	//TODO to do res;
-	static <T, R> R myFoldLeft(List<T> origin, R res, BiFunction<R, T, R> lambda){
+	static <T, R> R myFoldLeft(List<T> origin, R result, BiFunction<R, T, R> lambda){
 		if (origin.size() == 0){
-			return res;
+			return result;
 		}
-		R nextValue = lambda.apply(res, origin.get(0));
-
+		R nextValue = lambda.apply(result, origin.get(0));
 		return myFoldLeft(origin.subList(1, origin.size()), nextValue, lambda);
 	}
 
-	//TODO to do res;
-	static <T, R> R myFoldRight(List<T> origin, R res, BiFunction<R, T, R> lambda){
+	static <T, R> R myFoldRight(List<T> origin, R result, BiFunction<R, T, R> lambda){
 		if (origin.size() == 0){
-			return res;
+			return result;
 		}
-		R nextValue = lambda.apply(res, origin.get(origin.size() - 1));
-
+		R nextValue = lambda.apply(result, origin.get(origin.size() - 1));
 		return myFoldLeft(origin.subList(0, origin.size() - 1), nextValue, lambda);
 	}
 
@@ -73,13 +68,12 @@ public class FunctionalProgramming {
 		List<String> arrStrings = Arrays.asList("a", "b", "c");
 		List<Integer> arrNumbers = Arrays.asList(1, 2, 3, 4);
 		System.out.println(myFoldLeft(arrStrings, "", (i, s) -> i + s));
-		System.out.println(myFoldRight(arrStrings, "", (i, s) -> i + s));
 		System.out.println(myFoldLeft(arrNumbers, 0, (i, s) -> i + s));
+		System.out.println(myFoldLeft(arrNumbers, 0, (i, s) -> i - s));
 		System.out.println(myFoldLeft(arrNumbers, 1, (i, s) -> i * s));
+		System.out.println(myFoldRight(arrStrings, "", (i, s) -> i + s));
 		System.out.println(myFoldRight(arrNumbers, 0, (i, s) -> i + s));
+		System.out.println(myFoldRight(arrNumbers, 0, (i, s) -> i - s));
 		System.out.println(myFoldRight(arrNumbers, 1, (i, s) -> i * s));
-
-
-
 	}
 }
