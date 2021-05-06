@@ -10,8 +10,6 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class FunctionalProgramming {
-	//foldLeft
-	//foldRight
 	static <T, R> List<R> myMap(List<T> origin, Function<T, R> mapper){
 		List<R> mapList = new ArrayList<>();
 		for (var elem : origin){
@@ -38,9 +36,14 @@ public class FunctionalProgramming {
 		return filterList;
 	}
 
-	static <T extends Number> Number myCount(List<T> origin){
-
-		return 1;
+	static <T> long myCount(List<T> origin, Predicate<T> predicate){
+		long count = 0;
+		for (var elem : origin){
+			if (predicate.test(elem)){
+				count +=1;
+			}
+		}
+		return count;
 	}
 
 	/*
@@ -56,6 +59,11 @@ public class FunctionalProgramming {
 		return myFoldLeft(origin.subList(1, origin.size()), nextValue, lambda);
 	}
 
+	/*
+	 * Set `identity` to 'empty' value
+	 * Example: if List<String> => res = ""
+	 * Example: if List<Integer> => res = * ? 1 : 0
+	 */
 	static <T, R> R myFoldRight(List<T> origin, R identity, BiFunction<R, T, R> lambda){
 		if (origin.size() == 0){
 			return identity;
@@ -65,15 +73,42 @@ public class FunctionalProgramming {
 	}
 
 	public static void main(String[] args) {
+		//Init
 		List<String> arrStrings = Arrays.asList("a", "b", "c");
 		List<Integer> arrNumbers = Arrays.asList(1, 2, 3, 4);
-		System.out.println(myFoldLeft(arrStrings, "", (i, s) -> i + s));
-		System.out.println(myFoldLeft(arrNumbers, 0, (i, s) -> i + s));
-		System.out.println(myFoldLeft(arrNumbers, 0, (i, s) -> i - s));
-		System.out.println(myFoldLeft(arrNumbers, 1, (i, s) -> i * s));
-		System.out.println(myFoldRight(arrStrings, "", (i, s) -> i + s));
-		System.out.println(myFoldRight(arrNumbers, 0, (i, s) -> i + s));
-		System.out.println(myFoldRight(arrNumbers, 0, (i, s) -> i - s));
-		System.out.println(myFoldRight(arrNumbers, 1, (i, s) -> i * s));
+		List<Integer> oneNumber = Arrays.asList(55);
+		List<String> oneString = Arrays.asList("d");
+
+		System.out.println("\n=======Test myMap=======\n");
+		System.out.println(myMap(arrStrings, String::toUpperCase));
+		System.out.println(myMap(arrNumbers, i -> i * 2));
+
+		System.out.println("\n=======Test myForEach=======\n");
+		myForEach(arrStrings, System.out::print);
+		System.out.println();
+		myForEach(arrNumbers, System.out::print);
+
+
+		System.out.println("\n=======Test myFilter=======\n");
+		System.out.println(myFilter(arrStrings, str -> str.startsWith("a")));
+		System.out.println(myFilter(arrNumbers, integer -> integer % 2 == 0));
+
+		System.out.println("\n=======Test myCount=======\n");
+		System.out.println(myCount(arrStrings, str -> str.startsWith("a")));
+		System.out.println(myCount(arrNumbers, integer -> integer % 2 == 0));
+
+		System.out.println("\n=======Test myFoldLeft=======\n");
+		System.out.println(myFoldLeft(arrStrings, "", (integer, str) -> integer + str));
+		System.out.println(myFoldLeft(arrNumbers, 0, (integer, str) -> integer + str));
+		System.out.println(myFoldLeft(arrNumbers, 0, (integer, str) -> integer - str));
+		System.out.println(myFoldLeft(arrNumbers, 1, (integer, str) -> integer * str));
+		System.out.println(myFoldLeft(oneString, "", (integer, str) -> integer + str));
+		System.out.println(myFoldLeft(oneNumber, 0, (integer, str) -> integer + str));
+
+		System.out.println("\n=======Test myFoldRight=======\n");
+		System.out.println(myFoldRight(arrStrings, "", (integer, str) -> integer + str));
+		System.out.println(myFoldRight(arrNumbers, 0, (integer, str) -> integer + str));
+		System.out.println(myFoldRight(arrNumbers, 0, (integer, str) -> integer - str));
+		System.out.println(myFoldRight(arrNumbers, 1, (integer, str) -> integer * str));
 	}
 }
