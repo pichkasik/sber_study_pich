@@ -12,21 +12,28 @@ import java.util.stream.Stream;
 
 
 public class PracticeStream {
-	public static void main(String[] args) {
 
+	public static void exampleStreamIntegers()
+	{
 		int maxNbr = 1000;
 		int minNbr = -1000;
 		int valueSum = 0;
 		IntStream randomInts = new Random().ints(minNbr, maxNbr);
 		Set<Integer> hashSet = new HashSet<>();
 		randomInts.filter(integer -> integer > 0 && integer % 2 != 0)
-					.map(integer -> integer * 2)
-					.limit(15)
-					.forEach(x -> hashSet.add(x));
+				.map(integer -> integer * 2)
+				.limit(15)
+				.forEach(x -> hashSet.add(x));
 		valueSum = hashSet.stream().reduce(0, Integer::sum);
-		System.out.println("======================\n==Stream of integers==\n======================");
 		System.out.println("The sum of hashSet = " + valueSum );
 		System.out.println("The hashSet:");
 		hashSet.forEach(System.out::println);
+	}
+
+	public static void main(String[] args) {
+
+		System.out.println("======================\n==Stream of integers==\n======================");
+		exampleStreamIntegers();
+		System.out.println("\n======================\n==Stream of string==\n======================");
 	}
 }
